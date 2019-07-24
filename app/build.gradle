@@ -47,7 +47,7 @@ dependencies {
     //Room
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    //DI
+    //DI - Koin
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-core:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
@@ -67,6 +67,10 @@ dependencies {
     //Anko
     implementation "org.jetbrains.anko:anko:$anko_version"
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
     //LifeCycle
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "android.arch.lifecycle:runtime:1.1.1"
@@ -79,4 +83,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Pagination
+    implementation "androidx.paging:paging-runtime:2.1.0"
 }
