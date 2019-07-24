@@ -1,7 +1,8 @@
-package com.diegaspar.recipesbook
+package com.diegaspar.recipesbook.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.diegaspar.recipesbook.R
 
 class MainActivity : AppCompatActivity() {
 
