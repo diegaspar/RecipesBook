@@ -15,9 +15,9 @@ data class RecipeDB(
     companion object {
         fun map(recipe: Recipe): RecipeDB {
             return RecipeDB(
-                title = recipe.title,
+                title = recipe.title.trim().capitalize(),
                 href = recipe.href,
-                ingredients = recipe.ingredients,
+                ingredients = recipe.ingredients.trim().capitalize(),
                 thumbnail = recipe.thumbnail
             )
         }

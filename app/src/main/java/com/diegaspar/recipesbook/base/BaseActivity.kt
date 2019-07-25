@@ -3,19 +3,33 @@ package com.diegaspar.recipesbook.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import com.diegaspar.recipesbook.R
+import com.diegaspar.recipesbook.extension.inTransaction
 
-abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 
-    protected lateinit var binding: T
-        private set
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = DataBindingUtil.setContentView(this, getLayoutResId())
+        setContentView(getLayoutResId())
+        addFragment(savedInstanceState)
     }
+
+
+    override fun onBackPressed() {
+        (supportFragmentManager.findFragmentById(
+            R.id.fragmentContainer
+        ) as BaseFragment).onBackPressed()
+        super.onBackPressed()
+    }
+
+    private fun addFragment(savedInstanceState: Bundle?) =
+        savedInstanceState ?: supportFragmentManager.inTransaction {
+            add(
+                R.id.fragmentContainer, fragment()
+            )
+        }
+
+    abstract fun fragment(): BaseFragment
 }

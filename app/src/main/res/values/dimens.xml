@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardview_recipe_margin">12dp</dimen>
+    <dimen name="image_size">50dp</dimen>
+</resources>

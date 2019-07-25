@@ -22,7 +22,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding.enabled = true
 }
 
 dependencies {
@@ -44,25 +43,25 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
-    //Room
+    //VM
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    //Room
+    implementation 'androidx.room:room-runtime:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0'
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
     //DI - Koin
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-core:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
-    //Data Binding
-    kapt "com.android.databinding:compiler:3.2.0-alpha10"
-    implementation 'androidx.room:room-runtime:2.1.0'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0'
-    kapt "android.arch.persistence.room:compiler:1.1.1"
-
     //Networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
     implementation 'com.github.salomonbrys.kotson:kotson:2.5.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.0.1"
 
     //Anko
     implementation "org.jetbrains.anko:anko:$anko_version"
@@ -78,6 +77,7 @@ dependencies {
     //UI
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0-beta01"
+    implementation 'com.airbnb.android:lottie:3.0.7'
 
     //TEST
     testImplementation 'junit:junit:4.12'

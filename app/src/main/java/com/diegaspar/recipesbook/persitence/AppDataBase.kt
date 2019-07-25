@@ -6,10 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.diegaspar.recipesbook.model.Recipe
 import com.diegaspar.recipesbook.persitence.AppDataBase.Companion.DB_VERSION
 
-@Database(entities = [Recipe::class], version = DB_VERSION, exportSchema = false)
+@Database(entities = [RecipeDB::class], version = DB_VERSION, exportSchema = false)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getRecipeDao(): RecipeDao
 

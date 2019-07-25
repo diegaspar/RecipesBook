@@ -18,7 +18,15 @@ class SearchRecipeViewModel(repo: RecipesRepo) : BaseViewModel() {
 
     fun fetchRecipesByIngredients(query: String) {
         val search = query.trim()
-        //TODO do the 3 characters counting here
         recipeDataSource.updateQuery(search)
     }
+
+    fun refreshFailedRequest() =
+        recipeDataSource.getSource()?.retryFailedQuery()
+
+    fun refreshAllList() =
+        recipeDataSource.getSource()?.refresh()
+
+    fun getCurrentQuery() =
+        recipeDataSource.getQuery()
 }

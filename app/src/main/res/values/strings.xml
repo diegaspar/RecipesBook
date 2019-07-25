@@ -3,4 +3,9 @@
     <string name="retry">Retry</string>
     <string name="error_msg">Error getting data</string>
     <string name="viewtype_creation_error">ViewType not declared</string>
+    <string name="app_label">RecipeApp</string>
+    <string name="search_hint">Type ingredients for recipes</string>
+    <string name="search">Search</string>
+    <string name="load_data">Load data</string>
+    <string name="recipes_empty">No recipes found, try to type onions,chicken,milk …</string>
 </resources>

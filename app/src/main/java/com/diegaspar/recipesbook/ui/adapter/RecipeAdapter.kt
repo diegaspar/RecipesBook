@@ -18,20 +18,21 @@ class RecipeAdapter(private val listener: OnClickListener) :
     interface OnClickListener {
         fun onRetryClick()
         fun whenListIsUpdated(size: Int, networkState: NetworkState?)
+        fun onAddToFavouritesClicked(title: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
         return when (viewType) {
             R.layout.item_recipe -> RecipeViewHolder(view)
-            R.layout.item_repo_state -> RecipeViewHolder(view)
+            R.layout.item_repo_state -> RepoStateViewHolder(view)
             else -> throw IllegalArgumentException(parent.context.getString(R.string.viewtype_creation_error))
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
-            R.layout.item_recipe -> (holder as RecipeViewHolder).bind(getItem(position))
+            R.layout.item_recipe -> (holder as RecipeViewHolder).bind(getItem(position), listener)
             R.layout.item_repo_state -> (holder as RepoStateViewHolder).bind(currentNetworkState, listener)
         }
     }
@@ -60,8 +61,7 @@ class RecipeAdapter(private val listener: OnClickListener) :
     }
 
     private fun determineItemChange(
-        hadExtraRow: Boolean,
-        hasExtraRow: Boolean,
+        hadExtraRow: Boolean, hasExtraRow: Boolean,
         currentNetworkState: NetworkState?,
         newNetworkState: NetworkState?
     ) {
