@@ -1,5 +1,6 @@
 package com.diegaspar.recipesbook.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,4 +18,10 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun onBackPressed() {}
+
+    fun openActivity(intent: Intent) {
+        activity?.let {
+            it.startActivity(intent)
+        }
+    }
 }

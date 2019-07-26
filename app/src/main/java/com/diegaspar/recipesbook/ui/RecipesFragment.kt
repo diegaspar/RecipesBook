@@ -12,10 +12,11 @@ import com.diegaspar.recipesbook.api.NetworkState
 import com.diegaspar.recipesbook.base.BaseFragment
 import com.diegaspar.recipesbook.extension.gone
 import com.diegaspar.recipesbook.extension.visible
+import com.diegaspar.recipesbook.persitence.RecipeDB
 import com.diegaspar.recipesbook.ui.adapter.RecipeAdapter
+import com.diegaspar.recipesbook.ui.web.WebViewActivity
 import com.diegaspar.recipesbook.viewmodel.SearchRecipeViewModel
 import kotlinx.android.synthetic.main.recipes_fragment.*
-import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
@@ -82,8 +83,13 @@ class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
     }
 
     //Override onRetryClick from RecipeAdapter.onAddToFavouritesClicked
-    override fun onAddToFavouritesClicked(title: String) {
-        toast(title)
+    override fun onAddToFavouritesClicked(recipe: RecipeDB?) {
+        model.saveRecipePersistent(recipe)
+    }
+
+    //Override onRetryClick from RecipeAdapter.onRecipeRowClicked
+    override fun onRecipeRowClicked(url: String) {
+        activity?.let { WebViewActivity.createIntent(it, url) }?.let { openActivity(it) }
     }
 
     //Override onRetryClick from RecipeAdapter.OnClickListener

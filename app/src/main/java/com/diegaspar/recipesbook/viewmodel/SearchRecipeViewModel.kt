@@ -6,6 +6,7 @@ import androidx.paging.LivePagedListBuilder
 import com.diegaspar.recipesbook.api.NetworkState
 import com.diegaspar.recipesbook.base.BaseViewModel
 import com.diegaspar.recipesbook.datasource.RecipeDataSourceFactory
+import com.diegaspar.recipesbook.persitence.RecipeDB
 import com.diegaspar.recipesbook.repo.RecipesRepo
 import com.diegaspar.recipesbook.utils.pagedListConfig
 
@@ -29,4 +30,8 @@ class SearchRecipeViewModel(repo: RecipesRepo) : BaseViewModel() {
 
     fun getCurrentQuery() =
         recipeDataSource.getQuery()
+
+    fun saveRecipePersistent(recipe: RecipeDB?) {
+        recipeDataSource.saveRecipePersitence(recipe)
+    }
 }

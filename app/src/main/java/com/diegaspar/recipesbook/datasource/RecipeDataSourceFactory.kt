@@ -28,4 +28,8 @@ class RecipeDataSourceFactory(
         this.query = query
         getSource()?.refresh()
     }
+
+    fun saveRecipePersitence(recipe: RecipeDB?) {
+        //getSource()?. TODO
+    }
 }

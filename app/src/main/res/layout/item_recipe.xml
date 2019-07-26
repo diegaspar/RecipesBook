@@ -8,6 +8,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/recipe_animation_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:lottie_rawRes="@raw/twitterheart"
+            android:layout_margin="8dp"
+            app:lottie_autoPlay="false"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -49,7 +58,16 @@
                     android:layout_marginEnd="@dimen/cardview_recipe_margin"
                     tools:text="Ingredients"/>
 
+            <Button
+                    android:id="@+id/recipe_button_add"
+                    android:layout_width="wrap_content"
+                    android:text="@string/add_to_favourites"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_height="wrap_content"/>
+
         </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

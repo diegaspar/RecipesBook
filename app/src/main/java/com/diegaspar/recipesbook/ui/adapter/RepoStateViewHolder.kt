@@ -23,6 +23,8 @@ class RepoStateViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
                 itemView.repo_progress_bar.gone()
             }
             NetworkState.RUNNING -> {
+                itemView.repo_state_button.gone()
+                itemView.repo_error_msg.gone()
                 itemView.repo_progress_bar.visible()
             }
             NetworkState.SUCCESS -> {

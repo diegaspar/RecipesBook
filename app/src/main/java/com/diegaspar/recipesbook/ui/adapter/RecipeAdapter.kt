@@ -18,7 +18,8 @@ class RecipeAdapter(private val listener: OnClickListener) :
     interface OnClickListener {
         fun onRetryClick()
         fun whenListIsUpdated(size: Int, networkState: NetworkState?)
-        fun onAddToFavouritesClicked(title: String)
+        fun onAddToFavouritesClicked(title: RecipeDB?)
+        fun onRecipeRowClicked(url: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

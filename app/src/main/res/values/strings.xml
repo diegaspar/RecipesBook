@@ -8,4 +8,5 @@
     <string name="search">Search</string>
     <string name="load_data">Load data</string>
     <string name="recipes_empty">No recipes found, try to type onions,chicken,milk …</string>
+    <string name="add_to_favourites">Add to favourites</string>
 </resources>

@@ -13,7 +13,7 @@ interface RecipeDao {
     fun getRecipesCount(): Int
 
     @Query("SELECT * FROM Recipe WHERE title = :recipeId")
-    fun findRecipeById(recipeId: Long): RecipeDB
+    fun findRecipeById(recipeId: String): RecipeDB
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(recipeDB: RecipeDB)
