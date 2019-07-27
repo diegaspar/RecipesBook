@@ -1,9 +1,11 @@
 package com.diegaspar.recipesbook
 
 import com.diegaspar.recipesbook.base.BaseMockServerTest
-import com.diegaspar.recipesbook.di.repositoryModule
 import com.diegaspar.recipesbook.di.viewModelModule
+import com.diegaspar.recipesbook.diTest.mockedAndroidContext
 import com.diegaspar.recipesbook.diTest.networkMockedComponent
+import com.diegaspar.recipesbook.diTest.repoMockedDBModule
+import com.diegaspar.recipesbook.persitence.RecipeDao
 import com.diegaspar.recipesbook.repo.RecipesRepo
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -13,6 +15,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.koin.core.context.startKoin
 import org.koin.test.inject
+import org.mockito.Mockito.mock
 import retrofit2.HttpException
 import java.net.HttpURLConnection
 
@@ -21,6 +24,7 @@ import java.net.HttpURLConnection
 class RecipesRepoTest : BaseMockServerTest() {
 
     private val recipesRepo by inject<RecipesRepo>()
+    var daoMocked = mock(RecipeDao::class.java)
 
     override fun setUp() {
         super.setUp()
@@ -29,7 +33,7 @@ class RecipesRepoTest : BaseMockServerTest() {
                 listOf(
                     viewModelModule,
                     networkMockedComponent(mockServer.url("/").toString()),
-                    repositoryModule
+                    repoMockedDBModule(daoMocked)
                 )
             )
         }
