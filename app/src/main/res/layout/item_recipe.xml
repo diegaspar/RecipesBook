@@ -9,7 +9,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:contentPaddingTop="8dp"
+        app:contentPaddingTop="12dp"
         android:layout_margin="8dp" android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout

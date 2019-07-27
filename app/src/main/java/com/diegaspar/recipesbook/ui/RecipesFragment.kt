@@ -39,6 +39,7 @@ class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
         setupMenu(menu)
     }
 
@@ -46,6 +47,7 @@ class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
         val searchMenuItem = menu.findItem(R.id.action_search)
         val possibleExistingQuery = model.getCurrentQuery()
         val searchView = searchMenuItem.actionView as SearchView
+        searchView.queryHint = getString(R.string.search_hint)
         if (possibleExistingQuery.isNotEmpty()) {
             searchMenuItem.expandActionView()
             searchView.setQuery(possibleExistingQuery, false)
