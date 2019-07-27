@@ -35,7 +35,7 @@ class RecipeViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
             setupHeartLottieAnimation()
             listener.onAddToFavouritesClicked(recipe)
         }
-        itemView.setOnClickListener {
+        itemView.recipe_parent.setOnClickListener {
             recipe.href?.let { it1 -> listener.onRecipeRowClicked(it1) }
         }
     }

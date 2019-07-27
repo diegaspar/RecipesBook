@@ -5,8 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:id="@+id/recipe_parent"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:clickable="true"
+        app:contentPaddingTop="8dp"
+        android:layout_margin="8dp" android:focusable="true">
 
     <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/recipe_animation_heart"
@@ -28,9 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="@dimen/cardview_recipe_margin"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+        />
 
         <com.diegaspar.recipesbook.ui.custom.LabelCustomView
                 android:id="@+id/recipe_label"
@@ -38,16 +40,17 @@
                 android:layout_height="wrap_content"
                 app:labelText="@string/has_lactose"
                 android:rotation="45"
-                app:layout_constraintEnd_toEndOf="@+id/recipe_thumb"
-                app:layout_constraintTop_toTopOf="@+id/recipe_thumb"/>
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout android:layout_width="0dp"
-                      android:layout_marginTop="8dp"
-                      android:layout_marginStart="8dp"
+                      android:layout_marginStart="12dp"
                       app:layout_constraintEnd_toEndOf="parent"
                       app:layout_constraintStart_toEndOf="@+id/recipe_thumb"
                       app:layout_constraintTop_toTopOf="parent"
                       android:orientation="vertical"
+                      android:paddingEnd="12dp"
                       android:layout_height="wrap_content" android:id="@+id/linearLayout">
             <TextView
                     android:id="@+id/recipe_title"
@@ -55,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp"
+                    android:layout_marginBottom="4dp"
                     tools:text="Recipe title qe qe qe qwe qe q eq qwe qe qe qe"/>
 
             <TextView
