@@ -12,15 +12,6 @@
         app:contentPaddingTop="8dp"
         android:layout_margin="8dp" android:focusable="true">
 
-    <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/recipe_animation_heart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            app:lottie_rawRes="@raw/twitterheart"
-            android:layout_margin="8dp"
-            app:lottie_autoPlay="false"/>
-
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

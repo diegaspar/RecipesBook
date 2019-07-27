@@ -1,6 +1,5 @@
 package com.diegaspar.recipesbook.ui.adapter
 
-import android.animation.Animator
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.diegaspar.recipesbook.extension.contains
@@ -19,7 +18,6 @@ class RecipeViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
     ) {
         recipe?.let {
             it.thumbnail?.let { it1 -> loadImage(it1, itemView.recipe_thumb, itemView.context) }
-            itemView.recipe_animation_heart.gone()
             itemView.recipe_title.text = it.title
             itemView.recipe_ingredients.text = it.ingredients
             checkLactose(it)
@@ -32,7 +30,6 @@ class RecipeViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
         recipe: RecipeDB
     ) {
         itemView.recipe_button_add.setOnClickListener {
-            setupHeartLottieAnimation()
             listener.onAddToFavouritesClicked(recipe)
         }
         itemView.recipe_parent.setOnClickListener {
@@ -47,24 +44,6 @@ class RecipeViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
             itemView.recipe_label.gone()
         }
     }
-
-    private fun setupHeartLottieAnimation() {
-        itemView.recipe_animation_heart.visible()
-        itemView.recipe_animation_heart.playAnimation()
-        itemView.recipe_animation_heart.addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationRepeat(p0: Animator?) {}
-
-            override fun onAnimationEnd(p0: Animator?) {
-                itemView.recipe_animation_heart.gone()
-            }
-
-            override fun onAnimationCancel(p0: Animator?) {}
-
-            override fun onAnimationStart(p0: Animator?) {}
-
-        })
-    }
-
 
     private fun containsLactoseIngredients(ingredients: String?): Boolean {
         return ingredients?.contains(listOf(Constants.CHEESE, Constants.MILK)) ?: false
