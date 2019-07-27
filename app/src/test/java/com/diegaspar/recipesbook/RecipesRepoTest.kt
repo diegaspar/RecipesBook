@@ -2,7 +2,6 @@ package com.diegaspar.recipesbook
 
 import com.diegaspar.recipesbook.base.BaseMockServerTest
 import com.diegaspar.recipesbook.di.viewModelModule
-import com.diegaspar.recipesbook.diTest.mockedAndroidContext
 import com.diegaspar.recipesbook.diTest.networkMockedComponent
 import com.diegaspar.recipesbook.diTest.repoMockedDBModule
 import com.diegaspar.recipesbook.persitence.RecipeDao
