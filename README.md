@@ -30,6 +30,9 @@ We have 4 major modules:
 - roomModule > Provides the instance of the DataBase and the Dao Interface.
 - viewModelModule > Provides the Repository instance to both viewmodels.
 
+## Testing
+For Unit testing I have been using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) to mock the response from the API.
+
 ## Main libraries used
 - [Kotlin](https://kotlinlang.org/docs/reference/) :heart:
 - [Koin](https://github.com/InsertKoinIO/koin) (DI)
