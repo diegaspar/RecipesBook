@@ -31,7 +31,8 @@ We have 4 major modules:
 - viewModelModule > Provides the Repository instance to both viewmodels.
 
 ## Testing
-For Unit testing I have been using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) to mock the response from the API.
+- For Repo Unit testing I have been using [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) to mock the response from the API.
+- The DAO is tested as well.
 
 ## Main libraries used
 - [Kotlin](https://kotlinlang.org/docs/reference/) :heart:
