@@ -13,10 +13,11 @@ import com.diegaspar.recipesbook.base.BaseFragment
 import com.diegaspar.recipesbook.extension.gone
 import com.diegaspar.recipesbook.extension.visible
 import com.diegaspar.recipesbook.persitence.RecipeDB
-import com.diegaspar.recipesbook.ui.adapter.RecipeAdapter
+import com.diegaspar.recipesbook.ui.adapter.recipes.RecipeAdapter
 import com.diegaspar.recipesbook.ui.web.WebViewActivity
 import com.diegaspar.recipesbook.viewmodel.SearchRecipeViewModel
 import kotlinx.android.synthetic.main.recipes_fragment.*
+import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
@@ -86,7 +87,10 @@ class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
 
     //Override onRetryClick from RecipeAdapter.onAddToFavouritesClicked
     override fun onAddToFavouritesClicked(recipe: RecipeDB?) {
-        model.saveRecipePersistent(recipe)
+        recipe?.let {
+            model.saveRecipePersistent(recipe)
+            toast(recipe.title + " " + getString(R.string.saved_favs))
+        }
     }
 
     //Override onRetryClick from RecipeAdapter.onRecipeRowClicked

@@ -70,4 +70,10 @@ class RecipeDataSource(
         retryQuery = null
         prevQuery?.invoke()
     }
+
+    fun saveRecipePersistence(recipe: RecipeDB?) {
+        scope.launch(getJobErrorHandler() + supervisorJob) {
+            recipe?.let { repository.saveRecipePersistence(it) }
+        }
+    }
 }

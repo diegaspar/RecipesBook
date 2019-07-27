@@ -32,6 +32,6 @@ class SearchRecipeViewModel(repo: RecipesRepo) : BaseViewModel() {
         recipeDataSource.getQuery()
 
     fun saveRecipePersistent(recipe: RecipeDB?) {
-        recipeDataSource.saveRecipePersitence(recipe)
+        recipeDataSource.saveRecipePersistence(recipe)
     }
 }

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.diegaspar.recipesbook.R
 import com.diegaspar.recipesbook.extension.inTransaction
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity(private val backButton: Boolean) : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 
@@ -14,6 +14,9 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResId())
         addFragment(savedInstanceState)
+        if (backButton) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
     }
 
 
@@ -22,6 +25,11 @@ abstract class BaseActivity : AppCompatActivity() {
             R.id.fragmentContainer
         ) as BaseFragment).onBackPressed()
         super.onBackPressed()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     private fun addFragment(savedInstanceState: Bundle?) =

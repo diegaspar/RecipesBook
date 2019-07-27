@@ -20,8 +20,6 @@ abstract class BaseFragment : Fragment() {
     open fun onBackPressed() {}
 
     fun openActivity(intent: Intent) {
-        activity?.let {
-            it.startActivity(intent)
-        }
+        activity?.startActivity(intent)
     }
 }

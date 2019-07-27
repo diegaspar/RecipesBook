@@ -8,6 +8,7 @@ import com.diegaspar.recipesbook.persitence.AppDataBase
 import com.diegaspar.recipesbook.persitence.RecipeDB
 import com.diegaspar.recipesbook.persitence.RecipeDao
 import io.reactivex.internal.util.NotificationLite.getValue
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -43,47 +44,54 @@ class DaoTest {
     @Test
     @Throws(Exception::class)
     fun should_Insert_Recipe_Item() {
-        recipeDao.insert(recipeDB)
 
-        val recipeDBTest = getValue<RecipeDB>(recipeDao.findRecipeById(recipeDB.title))
-        Assert.assertEquals(recipeDBTest.title, recipeDB.title)
+        runBlocking {
+            recipeDao.insert(recipeDB)
+            val recipeDBTest = getValue<RecipeDB>(recipeDao.findRecipeById(recipeDB.title))
+            Assert.assertEquals(recipeDBTest.title, recipeDB.title)
+        }
     }
 
     @Test
     @Throws(Exception::class)
     fun should_Get_All_Posts() {
-        recipeDao.insert(recipeDB)
-        recipeDao.insert(recipeDB2)
-
-        val recipeDBTest = getValue<List<RecipeDB>>(recipeDao.findAllRecipes())
-        Assert.assertEquals(recipeDBTest.size, 2)
+        runBlocking {
+            recipeDao.insert(recipeDB)
+            recipeDao.insert(recipeDB2)
+            val recipeDBTest = getValue<List<RecipeDB>>(recipeDao.findAllRecipes())
+            Assert.assertEquals(recipeDBTest.size, 2)
+        }
     }
 
     @Test
     @Throws(Exception::class)
     fun should_Replace_Post_Post() {
-        recipeDao.insert(recipeDB)
-        recipeDao.insert(recipeDB)
-
-        val recipeDBTest = getValue<List<RecipeDB>>(recipeDao.findAllRecipes())
-        Assert.assertEquals(recipeDBTest.size, 1)
+        runBlocking {
+            recipeDao.insert(recipeDB)
+            recipeDao.insert(recipeDB)
+            val recipeDBTest = getValue<List<RecipeDB>>(recipeDao.findAllRecipes())
+            Assert.assertEquals(recipeDBTest.size, 1)
+        }
     }
 
     @Test
     @Throws(Exception::class)
     fun should_Delete_Post() {
-        recipeDao.insert(recipeDB)
-        recipeDao.delete(recipeDB)
-        val recipeDBTest = getValue<RecipeDB>(recipeDao.findRecipeById(recipeDB.title))
-        Assert.assertNull(recipeDBTest)
+        runBlocking {
+            recipeDao.insert(recipeDB)
+            recipeDao.delete(recipeDB)
+            val recipeDBTest = getValue<RecipeDB>(recipeDao.findRecipeById(recipeDB.title))
+            Assert.assertNull(recipeDBTest)
+        }
     }
 
     @Test
     @Throws(Exception::class)
     fun should_Delete_All_Data() {
-        recipeDao.insert(recipeDB)
-
-        recipeDao.deleteAllRecipeData()
-        Assert.assertEquals(recipeDao.getRecipesCount(), 0)
+        runBlocking {
+            recipeDao.insert(recipeDB)
+            recipeDao.deleteAllRecipeData()
+            Assert.assertEquals(recipeDao.getRecipesCount(), 0)
+        }
     }
 }

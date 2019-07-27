@@ -13,7 +13,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.RecipesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.web.WebViewActivity">
+        </activity>
+        <activity android:name=".ui.FavouritesActivity">
         </activity>
     </application>
 

@@ -29,7 +29,7 @@ class RecipeDataSourceFactory(
         getSource()?.refresh()
     }
 
-    fun saveRecipePersitence(recipe: RecipeDB?) {
-        //getSource()?. TODO
+    fun saveRecipePersistence(recipe: RecipeDB?) {
+        getSource()?.saveRecipePersistence(recipe)
     }
 }

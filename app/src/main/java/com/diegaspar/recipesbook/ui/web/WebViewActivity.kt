@@ -4,18 +4,20 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.LayoutRes
+import com.diegaspar.recipesbook.R
+import com.diegaspar.recipesbook.R.layout.activity_main
 import com.diegaspar.recipesbook.base.BaseActivity
 import com.diegaspar.recipesbook.base.BaseFragment
 
 
-class WebViewActivity : BaseActivity() {
+class WebViewActivity : BaseActivity(true) {
 
     private val webViewFragment = WebViewFragment()
 
     override fun fragment(): BaseFragment = webViewFragment
 
     @LayoutRes
-    override fun getLayoutResId() = com.diegaspar.recipesbook.R.layout.activity_main
+    override fun getLayoutResId() = activity_main
 
     companion object {
 
@@ -32,12 +34,7 @@ class WebViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.webview_activity_title)
         intent.extras?.getString(KEY_URL, "google.com")?.let { webViewFragment.setUrl(it) }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
     }
 }

@@ -4,5 +4,5 @@ import com.diegaspar.recipesbook.repo.RecipesRepo
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    factory { RecipesRepo(get()) }
+    factory { RecipesRepo(get(), get()) }
 }

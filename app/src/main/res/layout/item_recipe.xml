@@ -61,7 +61,7 @@
                     tools:text="Ingredients"/>
 
             <Button
-                    android:id="@+id/recipe_button_add"
+                    android:id="@+id/recipe_button"
                     android:layout_width="wrap_content"
                     android:text="@string/add_to_favourites"
                     android:textColor="@color/colorAccent"

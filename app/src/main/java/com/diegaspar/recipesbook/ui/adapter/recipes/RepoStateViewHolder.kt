@@ -1,4 +1,4 @@
-package com.diegaspar.recipesbook.ui.adapter
+package com.diegaspar.recipesbook.ui.adapter.recipes
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

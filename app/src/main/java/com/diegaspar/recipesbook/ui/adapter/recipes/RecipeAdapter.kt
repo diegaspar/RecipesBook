@@ -1,4 +1,4 @@
-package com.diegaspar.recipesbook.ui.adapter
+package com.diegaspar.recipesbook.ui.adapter.recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ class RecipeAdapter(private val listener: OnClickListener) :
     interface OnClickListener {
         fun onRetryClick()
         fun whenListIsUpdated(size: Int, networkState: NetworkState?)
-        fun onAddToFavouritesClicked(title: RecipeDB?)
+        fun onAddToFavouritesClicked(recipe: RecipeDB?)
         fun onRecipeRowClicked(url: String)
     }
 

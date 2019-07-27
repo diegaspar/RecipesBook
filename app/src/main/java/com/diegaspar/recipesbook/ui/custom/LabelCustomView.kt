@@ -31,8 +31,4 @@ class LabelCustomView : LinearLayout {
     private fun updateView() {
         label_text.text = labelText
     }
-
-    fun setText(text: String) {
-        label_text.text = labelText
-    }
 }
