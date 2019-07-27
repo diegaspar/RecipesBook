@@ -1,4 +1,4 @@
-package com.diegaspar.recipesbook.ui
+package com.diegaspar.recipesbook.ui.favourites
 
 import android.os.Bundle
 import android.view.View

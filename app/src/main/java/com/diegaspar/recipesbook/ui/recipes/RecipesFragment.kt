@@ -1,4 +1,4 @@
-package com.diegaspar.recipesbook.ui
+package com.diegaspar.recipesbook.ui.recipes
 
 import android.os.Bundle
 import android.view.Menu
