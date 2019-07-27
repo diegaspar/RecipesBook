@@ -38,6 +38,10 @@ We have 4 major modules:
 - [Room](https://developer.android.com/topic/libraries/architecture/room) (Persistence)
 - [Retrofit](https://square.github.io/retrofit/) (Network)
 - [Coroutines](https://developer.android.com/kotlin/coroutines)
+
+## TODO
+- Instrumented Test
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
