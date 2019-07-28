@@ -119,6 +119,7 @@ class RecipesFragment : BaseFragment(), RecipeAdapter.OnClickListener {
                     fragment_image_warning.visible()
                     fragment_text_network.visible()
                     fragment_button_load_data.visible()
+                    fragment_animation_view.gone()
                 }
                 NetworkState.RUNNING -> {
                     fragment_progress_bar.visible()

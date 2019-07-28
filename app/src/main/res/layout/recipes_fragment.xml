@@ -52,12 +52,12 @@
             android:layout_width="50dp"
             android:src="@drawable/ic_warning_black_24dp"
             android:visibility="invisible"
-            android:layout_height="50dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/fragment_button_load_data" android:layout_marginTop="8dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintTop_toTopOf="@+id/fragment_recipes_recycler_view"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toTopOf="@+id/fragment_text_network"/>
 
     <ProgressBar
             android:id="@+id/fragment_progress_bar"
